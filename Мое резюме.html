@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Георгий Викторов - Резюме</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #3a86ff;
+            --link-color: #0056cc;
+            --link-hover: #004099;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #757575;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        body {
+            background-color: #fafafa;
+            color: var(--primary-color);
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .resume {
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        /* Header */
+        .header {
+            padding: 40px;
+            border-bottom: 1px solid var(--medium-gray);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .title {
+            font-size: 1.3rem;
+            color: var(--dark-gray);
+            font-weight: 400;
+        }
+        
+        .contacts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 10px;
+        }
+        
+        .contact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .contact:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Layout */
+        .content {
+            display: grid;
+            grid-template-columns: 7fr 5fr;
+            gap: 0;
+        }
+        
+        .left-panel {
+            padding: 40px;
+            border-right: 1px solid var(--medium-gray);
+        }
+        
+        .right-panel {
+            padding: 40px;
+        }
+        
+        /* Sections */
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+        
+        /* About */
+        .about-text {
+            font-size: 1.05rem;
+            color: var(--primary-color);
+        }
+        
+        /* Experience */
+        .experience-item {
+            margin-bottom: 30px;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .job-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .job-period {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+        
+        .company {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        
+        .company-link {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(0, 86, 204, 0.2);
+            transition: all 0.2s ease;
+            padding-bottom: 1px;
+        }
+        
+        .company-link:hover {
+            color: var(--link-hover);
+            border-bottom-color: var(--link-hover);
+        }
+        
+        .link-indicator {
+            font-size: 0.85em;
+            margin-left: 4px;
+            opacity: 0.7;
+        }
+        
+        .responsibilities {
+            list-style: none;
+        }
+        
+        .responsibilities li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .responsibilities li:before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Skills */
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-category {
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag {
+            background-color: var(--light-gray);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .highlight {
+            background-color: #e3f2fd;
+            color: var(--accent-color);
+        }
+        
+        /* Education */
+        .education-item {
+            margin-bottom: 25px;
+        }
+        
+        .education-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .education-place {
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+        
+        .education-link {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(0, 86, 204, 0.2);
+            transition: all 0.2s ease;
+            padding-bottom: 1px;
+        }
+        
+        .education-link:hover {
+            color: var(--link-hover);
+            border-bottom-color: var(--link-hover);
+        }
+        
+        .education-period {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--medium-gray);
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .left-panel {
+                border-right: none;
+                border-bottom: 1px solid var(--medium-gray);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .header, .left-panel, .right-panel {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 2rem;
+            }
+            
+            .contacts {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="resume">
+        <!-- Header -->
+        <div class="header">
+            <div>
+                <h1 class="name">Георгий Викторов</h1>
+                <div class="title">Программист / Специалист по информационной безопасности / SEO-специалист</div>
+            </div>
+            <div class="contacts">
+                <a href="tel:89167085136" class="contact">
+                    <i class="fas fa-phone"></i>
+                    <span>8 (916) 708-51-36</span>
+                </a>
+                <a href="mailto:georgijviktorov871@gmail.com" class="contact">
+                    <i class="fas fa-envelope"></i>
+                    <span>georgijviktorov871@gmail.com</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Left Panel -->
+            <div class="left-panel">
+                <!-- About -->
+                <div class="section">
+                    <h2 class="section-title">Обо мне</h2>
+                    <p class="about-text">
+                        Мотивированный специалист с знаниями Python, C++, Java, HTML/CSS. Интересуюсь информационной безопасностью, программированием и продвижением сайтов. Работаю SEO-специалистом и преподавателем программирования, стремлюсь к постоянному росту и открыт к новым задачам в IT-сфере.
+                    </p>
+                </div>
+                
+                <!-- Experience -->
+                <div class="section">
+                    <h2 class="section-title">Опыт работы</h2>
+                    
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div class="job-title">SEO-специалист, системный администратор и специалист по продвижению (маркетинг)</div>
+                            <div class="job-period">Январь 2025 — настоящее время</div>
+                        </div>
+                        <div class="company">
+                            <a href="https://kroneks.ru/?utm_referrer=https%3A%2F%2Fyandex.ru%2F" target="_blank" class="company-link">
+                                Kroneks LLC | Москва, Россия
+                                <span class="link-indicator">↗</span>
+                            </a>
+                        </div>
+                        <ul class="responsibilities">
+                            <li>Создание и управление рекламными кампаниями компании в интернете</li>
+                            <li>Мониторинг эффективности кампаний и анализ статистики для улучшения результатов</li>
+                            <li>Обновление и улучшение корпоративного сайта: добавление нового функционала и SEO-оптимизация</li>
+                            <li>Поддержка и реализация стратегий цифрового маркетинга и доработка контента для повышения видимости</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div class="job-title">Преподаватель программирования</div>
+                            <div class="job-period">Июнь 2025 — настоящее время</div>
+                        </div>
+                        <div class="company">
+                            <a href="https://algoritmika.org/ru" target="_blank" class="company-link">
+                                Algorithmics School | Москва, Россия
+                                <span class="link-indicator">↗</span>
+                            </a>
+                        </div>
+                        <ul class="responsibilities">
+                            <li>Проведение увлекательных занятий для школьников по направлениям: Компьютерная грамотность, Логическое и алгоритмическое мышление, Создание сайтов и программирование на Python</li>
+                            <li>Разработка и внедрение динамичных планов уроков и интерактивных упражнений по программированию для улучшения образовательных результатов</li>
+                            <li>Наставничество и обучение основам алгоритмического решения задач, развитие независимого и критического мышления</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Panel -->
+            <div class="right-panel">
+                <!-- Skills -->
+                <div class="section">
+                    <h2 class="section-title">Навыки</h2>
+                    
+                    <div class="skill-item">
+                        <div class="skill-category">Языки программирования</div>
+                        <div class="skill-tags">
+                            <span class="tag highlight">Python</span>
+                            <span class="tag highlight">C++</span>
+                            <span class="tag highlight">Java</span>
+                            <span class="tag highlight">HTML/CSS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-category">Технические навыки</div>
+                        <div class="skill-tags">
+                            <span class="tag">SEO-продвижение</span>
+                            <span class="tag">Администрирование сайтов</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">Linux</span>
+                            <span class="tag">SQL</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-category">Профессиональные навыки</div>
+                        <div class="skill-tags">
+                            <span class="tag">Преподавание</span>
+                            <span class="tag">Менторство</span>
+                            <span class="tag">Цифровой маркетинг</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-category">Языки</div>
+                        <div class="skill-tags">
+                            <span class="tag">Русский (родной)</span>
+                            <span class="tag">Английский (B2 Upper-Intermediate)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education -->
+                <div class="section">
+                    <h2 class="section-title">Образование</h2>
+                    
+                    <div class="education-item">
+                        <div class="education-title">Информационная безопасность</div>
+                        <div class="education-place">
+                            <a href="https://ithub.ru/?utm_source=yandex&utm_medium=cpc&utm_campaign=113997324&utm_content=16461512998&utm_term=---autotargeting&roistat=direct2_search_16461512998_---autotargeting&roistat_referrer=none&roistat_pos=premium_2&etext=2202.vs5huPnTq65yB1QyADyqWJMGQ7Lf0m7UjFM6KEXIqMd5bW12YmZramlpeXB4ZXZy.865fabc15186a031b02e51716c3862beeaf6d859&yclid=9937228327170605055&ybaip=1" target="_blank" class="education-link">
+                                Колледж ИТ-хаб
+                                <span class="link-indicator">↗</span>
+                            </a>
+                        </div>
+                        <div class="education-period">Сентябрь 2022 — настоящее время</div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="education-title">
+                            <a href="https://schusz1944.mskobr.ru/" target="_blank" class="education-link">
+                                Школа № 1944 с английским уклоном
+                                <span class="link-indicator">↗</span>
+                            </a>
+                        </div>
+                        <div class="education-period">Сентябрь 2013 — Июнь 2022</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>Резюме Георгия Алексеевича Викторова • Обновлено в декабре 2025</p>
+        </div>
+    </div>
+</body>
+</html>
